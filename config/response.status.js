@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 
-export const Status = {
+export const status = {
     //SUCCESS
     SUCCESS: {
         status: StatusCodes.OK, 
@@ -44,5 +44,19 @@ export const Status = {
         "code": 4004,
         "message": "요청하신 내용을 찾을 수 없습니다."
     },
+
+    PARAMETER_IS_WRONG: {
+        status: StatusCodes.BAD_REQUEST,
+        "isSuccess": false,
+        "code": 4005,
+        "message": "Request parameter에 오류가 발생하였습니다."
+    },
+
+    EMAIL_ALREADY_EXIST: {
+        status: StatusCodes.BAD_REQUEST,
+        "isSuccess": false,
+        "code": 4006,
+        "message": "해당 Email로 가입된 계정이 이미 존재합니다."
+    }
 
 }
