@@ -1,20 +1,21 @@
 import express from 'express';
 import cors from 'cors';
-// import { status } from './config/response.status.js';
-// import { response } from './config/response.js';
-// import { specs } from './config/swagger.config.js';
-// import SwaggerUi from 'swagger-ui-express';
+
+import { status } from './config/response.status';
+import { response } from './config/response';
+import { usersRouter } from "./src/routes/users.route";
 
 const app = express();
 
+//middleware
 app.set('port', process.env.PORT || 3000);
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-// swagger
-// app.use('/api-docs', SwaggerUi.serve, SwaggerUi.setup(specs));
+//router
+app.use('/users', usersRouter);
 
 app.use((err, req, res, next) => {
     res.locals.message = err.message;   
