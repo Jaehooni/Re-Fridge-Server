@@ -1,9 +1,11 @@
 import express from 'express';
 import cors from 'cors';
+import session from 'express-session';
 
 import { status } from './config/response.status';
 import { response } from './config/response';
 import { usersRouter } from "./src/routes/users.route";
+import { sessionOption } from './config/session.config';
 
 const app = express();
 
@@ -13,6 +15,7 @@ app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use((session(sessionOption)));
 
 //router
 app.use('/users', usersRouter);
