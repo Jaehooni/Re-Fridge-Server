@@ -2,11 +2,25 @@ import { StatusCodes } from "http-status-codes";
 
 export const status = {
     //SUCCESS
-    SUCCESS: {
+    SIGNIN_SUCCESS: {
         status: StatusCodes.OK, 
         "isSuccess": true, 
         "code": 2000, 
-        "message": "Success!"
+        "message": "회원 가입이 정상적으로 처리되었습니다"
+    },
+
+    LOGIN_SUCCESS: {
+        status: StatusCodes.OK, 
+        "isSuccess": true, 
+        "code": 2001, 
+        "message": "로그인이 정상적으로 처리되었습니다"
+    },
+
+    LOGOUT_SUCCESS: {
+        status: StatusCodes.OK, 
+        "isSuccess": true, 
+        "code": 2002, 
+        "message": "로그아웃이 정상적으로 처리되었습니다"
     },
 
     /* ERROR */
@@ -57,6 +71,22 @@ export const status = {
         "isSuccess": false,
         "code": 4006,
         "message": "해당 Email로 가입된 계정이 이미 존재합니다."
+    },
+
+    USER_DOES_NOT_EXIST: {
+        status: StatusCodes.BAD_REQUEST,
+        "isSuccess": false,
+        "code": 4007,
+        "message": "해당 User는 존재하지 않습니다."
+    },
+
+    SESSION_DOES_NOT_EXIST: {
+        status: StatusCodes.BAD_REQUEST,
+        "isSuccess": false,
+        "code": 4008,
+        "message": "로그인 중인 유저가 아닙니다."
     }
+
+
 
 }
