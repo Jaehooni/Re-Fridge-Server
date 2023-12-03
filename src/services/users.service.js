@@ -3,6 +3,7 @@ import { status } from "../../config/response.status";
 import { loginResponseDTO, signinResponseDTO } from "../dtos/users.dto";
 import { addUser, getUser, checkUser } from "../models/users.dao";
 
+// 회원가입
 export const joinUser = async (body) => {
     const birth = new Date(body.birthYear, body.birthMonth - 1, body.birthDay);
     
@@ -22,6 +23,7 @@ export const joinUser = async (body) => {
 
 }
 
+// 로그인
 export const createSession = async (req) => {
     const userEmail = req.body.email;
     const userPassword = req.body.password;
@@ -49,12 +51,17 @@ export const createSession = async (req) => {
 
 }
 
+// 로그아웃
 export const deleteSession = async (req) => {
-    console.log(req.session[req.body.email]);
     if (req.session[req.body.email]){
         req.session.destroy();
         return;
     }
 
-    throw new BaseError(status.SESSION_DOES_NOT_EXIST);
+    throw new BaseError(status.LOGOUT_FAILED);
+}
+
+// 냉장고 생성
+export const joinFridge = async (req) => {
+    
 }
