@@ -26,7 +26,7 @@ export const addUser = async (data) => {
 export const getUser = async (userId) => {
     try {
         const conn = await pool.getConnection();
-        const [user] = await pool.query(getUserID, userId);
+        const [user] = await pool.query(getUserByID, userId);
 
         console.log(user);
 
@@ -56,3 +56,5 @@ export const checkUser = async (data) => {
     }
 
 }
+
+e

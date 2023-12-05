@@ -23,6 +23,13 @@ export const status = {
         "message": "로그아웃이 정상적으로 처리되었습니다"
     },
 
+    MAKING_FRIDGE_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2003,
+        "message": "냉장고가 성공적으로 생성되었습니다"
+    },
+
     /* ERROR */
     UNAUTHORIZED: {
         status: StatusCodes.UNAUTHORIZED, 
@@ -45,12 +52,12 @@ export const status = {
         "message": "로그인에 실패하였습니다."
     },
 
-    // LOGOUT_FAILED: {
-    //     status: StatusCodes.BAD_REQUEST,
-    //     "isSuccess": false,
-    //     "code": 4003,
-    //     "message": "로그아웃에 실패하였습니다."
-    // },
+    LOGOUT_FAILED: {
+        status: StatusCodes.BAD_REQUEST,
+        "isSuccess": false,
+        "code": 4003,
+        "message": "로그아웃에 실패하였습니다."
+    },
 
     NOT_FOUND: {
         status: StatusCodes.NOT_FOUND,
@@ -79,14 +86,5 @@ export const status = {
         "code": 4007,
         "message": "해당 User는 존재하지 않습니다."
     },
-
-    SESSION_DOES_NOT_EXIST: {
-        status: StatusCodes.BAD_REQUEST,
-        "isSuccess": false,
-        "code": 4008,
-        "message": "로그인 중인 유저가 아닙니다."
-    }
-
-
 
 }
