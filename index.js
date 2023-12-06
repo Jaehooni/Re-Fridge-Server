@@ -4,8 +4,10 @@ import session from 'express-session';
 
 import { status } from './config/response.status';
 import { response } from './config/response';
-import { usersRouter } from "./src/routes/users.route";
 import { sessionOption } from './config/session.config';
+
+import { usersRouter } from "./src/routes/users.route";
+import { fridgesRouter } from './src/routes/fridges.route';
 
 const app = express();
 
@@ -19,6 +21,7 @@ app.use((session(sessionOption)));
 
 //router
 app.use('/users', usersRouter);
+app.use('/fridges', fridgesRouter);
 
 app.use((err, req, res, next) => {
     res.locals.message = err.message;   

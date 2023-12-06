@@ -8,6 +8,15 @@ export const sessionOption = {
     secret: process.env.SECRET_KEY,
     cookie: {
         httpOnly: true,
-        secure: false
+        secure: false,
+        maxAge: 600000
     }
+}
+
+export const checkSession = async (req) => {
+    if (req.session.user){
+        return true;
+    }
+
+    return false;
 }

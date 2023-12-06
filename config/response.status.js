@@ -30,6 +30,20 @@ export const status = {
         "message": "냉장고가 성공적으로 생성되었습니다"
     },
 
+    SHOWING_FRIDGE_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2004,
+        "message": "냉장고 목록이 성공적으로 출력되었습니다"
+    },
+    
+    REMOVE_FRIDGE_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2005,
+        "message": "냉장고가 성공적으로 삭제되었습니다"
+    },
+
     /* ERROR */
     UNAUTHORIZED: {
         status: StatusCodes.UNAUTHORIZED, 
@@ -85,6 +99,27 @@ export const status = {
         "isSuccess": false,
         "code": 4007,
         "message": "해당 User는 존재하지 않습니다."
+    },
+
+    SESSION_DOES_NOT_EXIST: {
+        status: StatusCodes.BAD_REQUEST,
+        "isSuccess": false,
+        "code": 4008,
+        "message": "세션이 존재하지 않습니다."
+    },
+
+    FRIDGE_NOT_CREATED: {
+        status: StatusCodes.BAD_REQUEST,
+        "isSuccess": false,
+        "code": 4009,
+        "message": "냉장고 생성에 실패했습니다."
+    },
+
+    FRIDGE_NAME_IS_DUPLICATED: {
+        status: StatusCodes.BAD_REQUEST,
+        "isSuccess": false,
+        "code": 4010,
+        "message": "냉장고 이름이 중복되었습니다."
     },
 
 }
