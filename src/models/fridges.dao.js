@@ -1,7 +1,7 @@
 import { pool } from "../../config/db.config";
 import { BaseError } from "../../config/error";
 import { status } from "../../config/response.status";
-import { insertFridgeSql, getUserNameByFridgeId, getFridgeInfoByUserID, deleteFridgeByFridgeID, getFridgeNameByFridgeID } from "./fridges.sql";
+import { insertFridgeSql, getUserNameByFridgeId, getFridgeInfoByUserID, deleteFridgeByFridgeID, getFridgeNameByFridgeID, updateFridgeName } from "./fridges.sql";
 
 export const addFridge = async(data) => {
     try{
@@ -68,6 +68,21 @@ export const deleteFridge = async(fridgeId) => {
         if (result.length == 0){
             throw new BaseError(status.NOT_FOUND);
         }
+        throw new BaseError(status.PARAMETER_IS_WRONG);
+    }
+}
+
+export const updateFridge = async(fridgeId, fridgeName) => {
+    try{
+        const conn = await pool.getConnection();
+        const [result] = await pool.query(updateFridgeName, [fridgeName, fridgeId]);
+    
+        if (result.length > 0){
+            return result[0].name; 
+        }
+        
+    } catch (err){
+        console.log(err);
         throw new BaseError(status.PARAMETER_IS_WRONG);
     }
 }
