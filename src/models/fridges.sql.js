@@ -7,3 +7,5 @@ export const getFridgeNameByFridgeID = "SELECT name FROM fridge WHERE id = ?;";
 export const getUserNameByFridgeId = "SELECT name FROM user WHERE user.id = (SELECT user_id FROM fridge WHERE fridge.id = ?);";
 
 export const deleteFridgeByFridgeID = "DELETE FROM fridge WHERE fridge.id = ?";
+
+export const updateFridgeName = "UPDATE fridge SET name = ? WHERE fridge.id = ?";

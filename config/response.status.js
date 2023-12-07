@@ -44,6 +44,13 @@ export const status = {
         "message": "냉장고가 성공적으로 삭제되었습니다"
     },
 
+    RENAME_FRIDGE_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2006,
+        "message": "냉장고 이름이 성공적으로 변경되었습니다"
+    },
+
     /* ERROR */
     UNAUTHORIZED: {
         status: StatusCodes.UNAUTHORIZED, 

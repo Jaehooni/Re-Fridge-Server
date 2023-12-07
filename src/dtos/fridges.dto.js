@@ -14,7 +14,11 @@ export const fridgeListResponseDTO = (fridgeList) => {
     return {"fridgeList": result};
 }
 
-export const fridgeDeleteResponseDTO = (removedFridgeName) => {
+export const fridgeDeleteResponseDTO = (fridgeName) => {
+    return {"removedFridgeName": fridgeName};
+}
 
-    return {"removedFridgeName": removedFridgeName};
+export const fridgeRenameResponseDTO = (fridgeName) => {
+
+    return {"newFridgeName": fridgeName};
 }
