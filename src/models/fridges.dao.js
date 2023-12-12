@@ -56,12 +56,14 @@ export const deleteFridge = async(fridgeId) => {
     try{
         const conn = await pool.getConnection();
         const [result] = await pool.query(getFridgeNameByFridgeID, fridgeId);
-        console.log(result);
+        // console.log(result);
 
         if (result.length > 0){
             await pool.query(deleteFridgeByFridgeID, fridgeId);
             return result[0].name; 
         }
+
+        return -1;
         
     } catch (err){
         console.log(err);
@@ -77,8 +79,12 @@ export const updateFridge = async(fridgeId, fridgeName) => {
         const conn = await pool.getConnection();
         const [result] = await pool.query(updateFridgeName, [fridgeName, fridgeId]);
     
-        if (result.length > 0){
-            return result[0].name; 
+        if (result.affectedRows > 0){
+            return fridgeName;
+        }
+
+        else{
+            return -1;
         }
         
     } catch (err){

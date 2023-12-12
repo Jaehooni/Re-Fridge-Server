@@ -51,6 +51,48 @@ export const status = {
         "message": "냉장고 이름이 성공적으로 변경되었습니다"
     },
 
+    MAKING_FOOD_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2007,
+        "message": "음식이 성공적으로 생성되었습니다"
+    },
+
+    SHOWING_FOODS_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2008,
+        "message": "음식 목록이 성공적으로 출력되었습니다"
+    },
+    
+    REMOVE_FOOD_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2009,
+        "message": "음식이 성공적으로 삭제되었습니다"
+    },
+
+    RENAME_FOOD_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2010,
+        "message": "음식 이름이 성공적으로 변경되었습니다"
+    },
+
+    MAKING_MEMO_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 2011,
+        "message": "메모기 성공적으로 생성되었습니다"
+    },
+
+    REMOVE_MEMO_SUCCESS: {
+        status: StatusCodes.OK,
+        "isSuccess": true,
+        "code": 20112,
+        "message": "메모기 성공적으로 삭제되었습니다"
+    },
+
     /* ERROR */
     UNAUTHORIZED: {
         status: StatusCodes.UNAUTHORIZED, 

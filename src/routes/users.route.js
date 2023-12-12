@@ -1,7 +1,7 @@
 import express from "express";
 import asyncHandler from 'express-async-handler';
 
-import { userSignin, userLogin, userLogout, makeFridge, removeFridge } from "../controllers/users.controller";
+import { userSignin, userLogin, userLogout } from "../controllers/users.controller";
 
 export const usersRouter = express.Router();
 
