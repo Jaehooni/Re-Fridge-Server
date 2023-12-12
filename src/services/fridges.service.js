@@ -41,8 +41,13 @@ export const removeFridge = async (req) => {
     const isSessionExist = await checkSession(req);
 
     if (isSessionExist){
-        const removedFridgeName = await deleteFridge(req.params.fridgeId);
-        return fridgeDeleteResponseDTO(removedFridgeName);
+        const removeFridgeResult = await deleteFridge(req.params.fridgeId);
+
+        if (removeFridgeResult != -1){
+            return fridgeDeleteResponseDTO(removeFridgeResult);
+        }
+
+        throw new BaseError(status.NOT_FOUND);
     }
 
     throw new BaseError(status.SESSION_DOES_NOT_EXIST);
@@ -53,8 +58,13 @@ export const patchFridge = async (req) => {
     const isSessionExist = await checkSession(req);
 
     if (isSessionExist){
-        const renamedFridgeName = await updateFridge(req.params.fridgeId, req.body.name);
-        return fridgeRenameResponseDTO(renamedFridgeName);
+        const renameFridgeResult = await updateFridge(req.params.fridgeId, req.body.name);
+
+        if (renameFridgeResult != -1){
+            return fridgeRenameResponseDTO(renameFridgeResult);
+        }
+
+        throw new BaseError(status.NOT_FOUND);
     }
 
     throw new BaseError(status.SESSION_DOES_NOT_EXIST);
