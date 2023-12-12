@@ -1,20 +1,29 @@
 import express from 'express';
 import cors from 'cors';
-// import { status } from './config/response.status.js';
-// import { response } from './config/response.js';
-// import { specs } from './config/swagger.config.js';
-// import SwaggerUi from 'swagger-ui-express';
+import session from 'express-session';
+
+import { status } from './config/response.status';
+import { response } from './config/response';
+import { sessionOption } from './config/session.config';
+
+import { usersRouter } from "./src/routes/users.route";
+import { fridgesRouter } from './src/routes/fridges.route';
+import { foodsRouter } from './src/routes/foods.route';
 
 const app = express();
 
+//middleware
 app.set('port', process.env.PORT || 3000);
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use((session(sessionOption)));
 
-// swagger
-// app.use('/api-docs', SwaggerUi.serve, SwaggerUi.setup(specs));
+//router
+app.use('/users', usersRouter);
+app.use('/fridges', fridgesRouter);
+app.use('/foods', foodsRouter);
 
 app.use((err, req, res, next) => {
     res.locals.message = err.message;   
@@ -24,6 +33,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(app.get('port'), () => {
-    console.log(`Example app listening on port ${app.get('port')}`)
+    console.log(`Listening on port ${app.get('port')}`)
 });
 
